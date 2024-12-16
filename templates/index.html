@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add reaction</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/style.css')}}"
+    />
+  </head>
+  <body class="bg-slate-900">
+
+      <main>
+            <div class="header">
+                <span><a class='nav_link' href="/addrxn">add reaction;</a></span>
+                <span><a class='nav_link' href='/'>view reaction:home;</a></span>
+                <span>tags; categories</span>
+            </div>
+        <h1 >
+            Reactions
+        </h1>
+
+        <div class = "page_info">Page {{page}} of {{tot_pages}}.<br/>
+            Go to page:
+            <form action="/" method="get">
+                <input type="text" name="go_to" class="small_input"></input>
+                <button class="small_btn">go!</button>
+        </form>
+        </div>
+
+        {%- for reaction in data %}
+        <div class="card">
+                        <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{{reaction.reactant}}/PNG?image_size=small" alt="" style="scale: 1.5; ">
+                        <div class="card-content">
+                            <h2>{{reaction.spc_name}}</h2>
+                            <p><strong>Conversion:</strong> {{reaction.reactant_type}} &#10132; {{reaction.product_type}}</p>
+                            <p class="tags">aliases: schiff base, schiff test.<br>tags: aldehyde, phenol</p>
+                            <div class="card-footer">Click on card to view more</div>
+                        </div>
+                    </div>
+        {% endfor %}
+
+
+
+        <footer class="border-t-orange-400 border-2 border-slate-900 p-4 m-6 ml-0 mr-0"></footer>
+          <p>
+            Amarnath K<br />
+            <a href="mailto:amarnathkunnummal112@gmail.com"
+              >amarnathkunnummal112(at)gmail.com</a
+            >
+          </p>
+        </footer>
+      </main>
+  </body>
+</html>

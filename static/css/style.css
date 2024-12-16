@@ -1,0 +1,123 @@
+body {
+  background-color: #732c31ff;
+  color: whitesmoke;
+}
+
+button {
+  background-color: #ffffff09;
+  margin: 1rem;
+  padding: 0.3rem;
+}
+
+main {
+  margin: auto;
+  width: 50%;
+  padding: 1rem;
+  border: 2px grey solid;
+}
+
+footer {
+  border-top: 2px grey solid;
+}
+
+a {
+  color: slateblue;
+}
+
+a:visited {
+  color: aqua;
+}
+
+input {
+  background-color: #ffffff09;
+  width: auto;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  color: wheat;
+}
+
+textarea {
+  background-color: #ffffff09;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  color: wheat;
+}
+
+.header {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1rem;
+  border-bottom: 2px grey solid;
+}
+.header span {
+  margin: 0 15px;
+}
+
+.nav_link {
+  color: slateblue;
+}
+
+.page_info {
+  font-size: small;
+  margin-bottom: 1rem;
+}
+
+.small_input {
+  margin: 2px;
+  padding: 1px;
+  font-size: small;
+  width: 1rem;
+}
+
+.small_btn {
+  margin: 2px;
+  padding: 1px;
+  font-size: small;
+}
+
+/*chatgpt css*/
+.card {
+  background-color: #4d1c1e;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  paddi.ng: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  border: 1px solid white;
+}
+.card-content {
+  color: #ededed;
+}
+.card-content h2 {
+  font-style: italic;
+  font-size: 1.4rem;
+  margin: 0;
+}
+.card-content p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+.tags {
+  color: #ffdddd;
+  font-size: 0.8rem;
+}
+
+/* Footer Link */
+.card-footer {
+  text-align: right;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+/* Clearfix */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}

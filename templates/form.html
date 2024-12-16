@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add reaction</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/style.css')}}"
+    />
+  </head>
+  <body class="bg-slate-900">
+
+      <main>
+          <div class="header">
+              <span><a class='nav_link' href="/addrxn">add reaction;</a></span>
+              <span><a class='nav_link' href='/'>view reaction:home;</a></span>
+              <span>tags; categories</span>
+          </div>
+        <h1 >
+            Add a reaction to the database
+        </h1>
+        <p>Separate multiple values with ampersands (&).</p>
+        <form action = '' method = "post">
+            <label for="spc_name">Special name(s)</label>
+            <input type="text" name="spc_name" placeholder="ex. Swarts reaction" ></input><br/>
+            <label for="reactant_type">Reactant type(s) (*)</label>
+            <input type="text" name="reactant_type" placeholder="ex. alkane" ></input><br/>
+            <label for="product_type">Product type(s) (*)</label>
+            <input type="text" name="product_type" placeholder="ex. alkane" ></input><br/>
+            <p>Enter none for catalysts if there are no catalysts.</p>
+            <label for="catalyst">Catalyst(s) (*)</label>
+            <input type="text" name="catalyst" placeholder="ex. PCC, DIBAL-H & water" ></input>
+
+            <p>The following two fields will be used for an example reaction.</p>
+            <label for="reactant">Specific reactant(s) (*)</label>
+            <input type="text" name="reactant" placeholder="ex. benzene & phenol" ></input><br/>
+            <label for="product">Specific product(s) (*)</label>
+            <input type="text" name="product" placeholder="ex. benzene & phenol" ></input>
+
+            <p>These fields are optional.</p>
+            <label for="significance">Significance(s)</label>
+            <input type="text" name="significance" placeholder="ex. commerical prep." ></input><br/>
+            <label for="description">Description</label> <br/>
+            <textarea  name="description" placeholder="ex. commerical prep." style="width: 50%;"></textarea><br/>
+            <button>
+                Add this reaction
+            </button>
+            <strong>{{response}}</strong>
+        </form>
+
+
+
+        <footer class="border-t-orange-400 border-2 border-slate-900 p-4 m-6 ml-0 mr-0">
+          <p>
+            Amarnath K<br />
+            <a href="mailto:amarnathkunnummal112@gmail.com"
+              >amarnathkunnummal112(at)gmail.com</a
+            >
+          </p>
+        </footer>
+      </main>
+  </body>
+</html>
