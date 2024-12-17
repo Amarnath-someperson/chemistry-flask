@@ -49,7 +49,7 @@
                 <p id ="errors"></p></span>
             </div>
 
-        <div id="reactions-main">
+        < id="reactions-main">
             <h1>{{data[0].spc_name}}</h1>
             <p>This reaction involves the conversion of [{{data[0].reactant_type.replace('&', ',')}}] to
                 [{{data[0].product_type.replace('&', ',')}}]</p>
@@ -66,7 +66,7 @@
                 <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{{i.strip()}}/PNG?image_size=240x240">
             {% endfor %}
 
-            The reaction may not be balanced.
+                <p>The reaction may not be balanced.</p>
 
                 <p>{{data[0].description}}</p>
 
