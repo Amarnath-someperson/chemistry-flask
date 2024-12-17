@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from db_model import Reaction
 from flask_sqlalchemy import SQLAlchemy, pagination
 app = Flask(__name__)
@@ -23,9 +23,25 @@ def landing_page():
                            tot_pages=Reaction.query.paginate(per_page=per_page).pages, page=page)
 
 
+@app.route('/api/search/<term>', methods=['GET'])
+def query_db(term):
+    data = []
+
+    data = Reaction.query.filter(
+        Reaction.spc_name.ilike(f'%{term}%')).all()
+
+    return render_template('index.html', data=data)
+
 # @app.route('/<page>', methods=['GET'])
 # def landing_page(page):
 #     return render_template('index.html', data=Reaction.query.paginate(page=page, per_page=15))
+
+
+@app.route('/view/<tag>', methods=['GET'])
+def rxn_page(tag):
+    data = Reaction.query.filter(Reaction.spc_name == tag)
+
+    return render_template('reaction_page.html', data=data)
 
 
 @app.route('/addrxn', methods=['GET', 'POST'])

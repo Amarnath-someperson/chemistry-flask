@@ -44,45 +44,36 @@
             <div class="header">
                 <span><a class='nav_link' href="/addrxn">add reaction;</a></span>
                 <span><a class='nav_link' href='/'>view reaction:home;</a></span>
-                <span>()</span>
                 <span><input type="text" id="search" class="small_input" style="width: 6rem;" placeholder="search?"/>
                 <button class="small_btn" onclick="search_req()">search!</button>
                 <p id ="errors"></p></span>
             </div>
-        <h1 >
-            Reactions
-        </h1>
-
-        <div class = "page_info">Page {{page}} of {{tot_pages}}.<br/>
-            Go to page:
-            <form action="/" method="get">
-                <input type="text" name="go_to" class="small_input"></input>
-                <button class="small_btn">go!</button>
-        </form>
-        </div>
 
         <div id="reactions-main">
-        {%- for reaction in data %}
-        <div class="card">
-            <div class="flex-container">
-               <div class="flex-items">
-                   <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{{reaction.reactant}}/PNG?image_size=small"><br/>
-                   	<p style="text-align: center; font-size: x-large; color: wheat; width: 70%; margin: 0px; ">&#129095;</p>
-                   <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{{reaction.product}}/PNG?image_size=small">
-                </div>
-               <div class="flex-items">
-                   <div class="card-content">
-                       <h2><a href="/view/{{reaction.spc_name}}">{{reaction.spc_name}}</a></h2>
-                       <p><strong>Conversion:</strong> {{reaction.reactant_type}} &#10132; {{reaction.product_type}}</p>
-                       <strong>Catalyst(s):</strong> <p name = "katex"> \ce { {{reaction.catalyst}} }</p>
-                       <p><strong>Significance(s):</strong> {{reaction.significance}}</p>
-                       <p><strong>Description:</strong> {{reaction.description[0:100]}}</p>
-                   </div>
-               </div>
-            </div>
-        </div>
-        {% endfor %}
+            <h1>{{data[0].spc_name}}</h1>
+            <p>This reaction involves the conversion of [{{data[0].reactant_type.replace('&', ',')}}] to
+                [{{data[0].product_type.replace('&', ',')}}]</p>
+            <p>The specific reaction demonstrated here is of the conversion of [{{data[0].reactant}}] to
+                [{{data[0].product}}] using catalyst <strong name="katex">[\ce{ {{data[0].catalyst}} }]</strong></p>
 
+            <p>It is significant in that [{{data[0].significance}}]</p>
+            <h2>Sample reaction</h2>
+            {% for i in data[0].reactant.split('&') %}
+                <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{{i.strip()}}/PNG?image_size=240x240">
+            {% endfor %}
+            ->
+            {% for i in data[0].product.split('&') %}
+                <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{{i.strip()}}/PNG?image_size=240x240">
+            {% endfor %}
+
+            The reaction may not be balanced.
+
+                <p>{{data[0].description}}</p>
+
+
+
+
+        </div>
 
 
         <footer class="border-t-orange-400 border-2 border-slate-900 p-4 m-6 ml-0 mr-0"></footer>
